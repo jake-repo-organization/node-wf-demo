@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
-    "call_veracode": "node call_veracode.js"
+    "call_veracode": "node veracode_principal_call.js"
   },
   "keywords": [],
   "author": "",
