@@ -1,9 +1,9 @@
 # https://github.com/actions
-name: node-rest-call
-run-name: ${{ github.actor }} is ripping api calls like it is his bday
+name: restfully-call-poke-api
+run-name: RESTfully call Poke API
 on: [push]
 jobs:
-  run-index-js:
+  run-poke-api-test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4 # checkout repo this is part of, now you can run scripts in it
@@ -11,4 +11,4 @@ jobs:
         with:
           node-version: '20'
       - run: npm install
-      - run: npm start
+      - run: npm run poke_api_test

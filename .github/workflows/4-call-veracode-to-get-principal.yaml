@@ -1,9 +1,9 @@
 # https://github.com/actions
-name: node-rest-call
-run-name: TEST PRINCIPAL CALL
+name: restfully-get-veracocde-principal
+run-name: RESTfully get Veracode principal
 on: [push]
 jobs:
-  run-index-js:
+  run-veracode-principal-test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4 # checkout repo this is part of, now you can run scripts in it
@@ -11,12 +11,7 @@ jobs:
         with:
           node-version: '20'
       - run: npm install
-      - name: Retrieve Secrets
-        env:
-          API_ID: ${{ secrets.API_ID }}
-          API_KEY: ${{ secrets.API_KEY }}
-        run: echo $API_ID $API_KEY
-      - run: npm run call_veracode
+      - run: npm run veracode_principal_test
         env:
           API_ID: ${{ secrets.API_ID }}
           API_KEY: ${{ secrets.API_KEY }}
