@@ -1,0 +1,41 @@
+name: Run all workflows as jobs
+run-name: Run all workflows
+on: [push]
+jobs:
+  check-bats-version:
+    runs-on: ubuntu-latest # run on latest stable ubuntu runner, https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idruns-on
+    steps:
+      - uses: actions/checkout@v4 # checkout repo this is part of, now you can run scripts in it
+      - uses: actions/setup-node@v4 # install specified version of node
+        with:
+          node-version: '20'
+      - run: npm install -g bats
+      - run: bats -v
+  pull-secret-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Retrieve secret
+        env:
+          super_secret: ${{ secrets.SUPERSECRET }}
+        run: echo $super_secret
+  run-poke-api-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4 # checkout repo this is part of, now you can run scripts in it
+      - uses: actions/setup-node@v4 # install specified version of node
+        with:
+          node-version: '20'
+      - run: npm install
+      - run: npm run poke_api_test
+  run-veracode-principal-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4 # checkout repo this is part of, now you can run scripts in it
+      - uses: actions/setup-node@v4 # install specified version of node
+        with:
+          node-version: '20'
+      - run: npm install
+      - run: npm run veracode_principal_test
+        env:
+          API_ID: ${{ secrets.API_ID }}
+          API_KEY: ${{ secrets.API_KEY }}

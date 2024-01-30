@@ -1,14 +1,14 @@
-# https://github.com/actions
-name: learn-github-actions
-run-name: ${{ github.actor }} is learning GitHub Actions
-on: [push]
-jobs:
-  check-bats-version:
-    runs-on: ubuntu-latest # run on latest stable ubuntu runner, https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idruns-on
-    steps:
-      - uses: actions/checkout@v4 # checkout repo this is part of, now you can run scripts in it
-      - uses: actions/setup-node@v4 # install specified version of node
-        with:
-          node-version: '20'
-      - run: npm install -g bats
-      - run: bats -v
+## https://github.com/actions
+#name: learn-github-actions
+#run-name: ${{ github.actor }} is learning GitHub Actions
+#on: [push]
+#jobs:
+#  check-bats-version:
+#    runs-on: ubuntu-latest # run on latest stable ubuntu runner, https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idruns-on
+#    steps:
+#      - uses: actions/checkout@v4 # checkout repo this is part of, now you can run scripts in it
+#      - uses: actions/setup-node@v4 # install specified version of node
+#        with:
+#          node-version: '20'
+#      - run: npm install -g bats
+#      - run: bats -v
