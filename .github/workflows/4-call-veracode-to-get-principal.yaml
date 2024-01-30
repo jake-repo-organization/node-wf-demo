@@ -1,6 +1,6 @@
 # https://github.com/actions
 name: node-rest-call
-run-name: ${{ github.actor }} is ripping api calls like it is his bday
+run-name: TEST PRINCIPAL CALL
 on: [push]
 jobs:
   run-index-js:
@@ -15,5 +15,5 @@ jobs:
         env:
           API_ID: ${{ secrets.API_ID }}
           API_KEY: ${{ secrets.API_KEY }}
-        run: echo $API_ID | $API_KEY
+        run: echo $API_ID $API_KEY
       - run: npm run call_veracode
