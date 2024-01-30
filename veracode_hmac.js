@@ -2,7 +2,7 @@
 const crypto = require('crypto');
 
 const id = process.env.API_ID; // your API ID, reading from environment variable
-const key = process.env.KEY; // your API key, reading from environment variable
+const key = process.env.API_KEY; // your API key, reading from environment variable
 
 if (!id) {
     console.error("No API_ID was found!")
