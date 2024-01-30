@@ -17,3 +17,7 @@ jobs:
           API_KEY: ${{ secrets.API_KEY }}
         run: echo $API_ID $API_KEY
       - run: npm run call_veracode
+        env:
+          API_ID: ${{ secrets.API_ID }}
+          API_KEY: ${{ secrets.API_KEY }}
+
