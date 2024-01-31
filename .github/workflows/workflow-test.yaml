@@ -13,7 +13,7 @@ jobs:
       - run: npm install -g bats
       - run: bats -v
   pull-secret-test:
-    needs: check-bats-version
+    needs: check-bats-version # Run two jobs sequentially
     runs-on: ubuntu-latest
     steps:
       - name: Retrieve secret
@@ -21,6 +21,7 @@ jobs:
           super_secret: ${{ secrets.SUPERSECRET }}
         run: echo $super_secret
   run-poke-api-test:
+    needs: pull-secret-test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4 # checkout repo this is part of, now you can run scripts in it
