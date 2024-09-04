@@ -1,5 +1,5 @@
 name: Check Out and List Files
-run-name: Run all workflows
+run-name: Check Out and List Files
 on: [push]
 
 jobs:
