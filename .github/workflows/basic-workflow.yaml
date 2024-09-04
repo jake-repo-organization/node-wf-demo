@@ -1,0 +1,14 @@
+name: Check Out and List Files
+run-name: Run all workflows
+on: [push]
+
+jobs:
+  list-files:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Echo a test message
+      run: echo "GitHub test"
+    - name: Check out repository
+      uses: actions/checkout@v4
+    - name: List files in the repository
+      run: ls -la
